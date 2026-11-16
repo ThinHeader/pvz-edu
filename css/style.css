@@ -1,0 +1,259 @@
+/* ============================================
+ * style.css — 植物大战僵尸·学习融合版
+ * 卡通明亮风格，适配大屏与触屏
+ * ============================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: linear-gradient(180deg, #87CEEB 0%, #bfe8a0 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.hidden { display: none !important; }
+b { color: #d35400; }
+
+#app { width: 100vw; height: 100vh; position: relative; }
+
+.screen {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- 菜单 ---------- */
+.menu-card {
+  text-align: center;
+  background: rgba(255, 251, 235, .92);
+  border: 6px solid #8B4513;
+  border-radius: 24px;
+  padding: 48px 64px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+}
+.logo { font-size: 44px; color: #2e7d32; text-shadow: 2px 2px 0 #fff; }
+.logo small { font-size: 22px; color: #e65100; }
+.subtitle { margin: 14px 0 30px; font-size: 18px; color: #555; }
+.menu-btns { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.footer-tip { margin-top: 26px; color: #888; font-size: 13px; }
+
+.mbtn {
+  min-width: 240px; padding: 12px 28px; font-size: 20px; font-weight: bold;
+  color: #fff; background: linear-gradient(180deg, #66bb6a, #388e3c);
+  border: 3px solid #1b5e20; border-radius: 14px; cursor: pointer;
+  transition: transform .1s, box-shadow .1s;
+}
+.mbtn:hover { transform: scale(1.04); box-shadow: 0 4px 12px rgba(0,0,0,.25); }
+.mbtn:active { transform: scale(.97); }
+.mbtn.big { font-size: 26px; padding: 16px 44px; }
+.mbtn.ghost { background: #eee; color: #444; border-color: #aaa; }
+.btn-row { margin-top: 26px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- 面板 ---------- */
+.panel {
+  background: rgba(255, 251, 235, .95);
+  border: 5px solid #8B4513; border-radius: 20px;
+  padding: 30px 40px; max-width: 640px; max-height: 92vh; overflow: auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,.22);
+}
+.panel.wide { max-width: 860px; }
+.panel h2 { color: #2e7d32; margin-bottom: 18px; }
+
+.cfg-row { margin: 16px 0; }
+.cfg-row > label { display: block; font-size: 16px; font-weight: bold; color: #6d4c41; margin-bottom: 8px; }
+.cfg-hint { font-size: 13px; color: #888; margin-top: 6px; }
+
+.seg { display: flex; gap: 8px; flex-wrap: wrap; }
+.seg button {
+  padding: 9px 18px; font-size: 16px; cursor: pointer;
+  background: #fff; border: 2px solid #bfbbb0; border-radius: 10px; color: #444;
+}
+.seg button.active { background: #ffca28; border-color: #e65100; color: #4e2600; font-weight: bold; }
+
+/* ---------- 题库管理 ---------- */
+.bank-import { display: flex; align-items: center; gap: 12px; color: #777; }
+.file-btn {
+  display: inline-block; padding: 10px 20px; font-size: 16px; font-weight: bold;
+  background: #42a5f5; color: #fff; border: 2px solid #1565c0; border-radius: 10px; cursor: pointer;
+}
+#bank-text {
+  width: 100%; padding: 12px; font-size: 14px; border: 2px solid #bfbbb0;
+  border-radius: 10px; font-family: monospace; resize: vertical;
+}
+.bank-template {
+  margin-top: 10px; padding: 10px 14px; background: #fff8e1; border-radius: 10px;
+  font-size: 13px; color: #6d4c41; font-family: monospace; white-space: pre-wrap;
+}
+
+/* ---------- 统计 / 结算 ---------- */
+.stat-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.stat-table th, .stat-table td { border: 1px solid #d7ccc8; padding: 8px 12px; text-align: center; font-size: 15px; }
+.stat-table th { background: #dcedc8; color: #33691e; }
+.acc-big { font-size: 40px; font-weight: bold; color: #2e7d32; }
+.weak-tag { display: inline-block; background: #ffe0b2; color: #e65100; padding: 4px 12px; border-radius: 12px; margin: 4px; font-size: 14px; }
+
+/* ---------- 游戏画面 ---------- */
+#game-root { position: fixed; inset: 0; overflow: hidden; }
+.game-scale { position: absolute; transform-origin: top left; }
+
+.stage {
+  background: #6a3d1f; border: 5px solid #4e2c12; border-radius: 16px;
+  padding: 10px; width: 800px;
+}
+.stage.battle { width: 1220px; }
+
+.topbar {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 8px;
+  color: #ffe0b2; font-size: 20px; font-weight: bold;
+}
+.tb-item { background: rgba(0,0,0,.25); padding: 4px 12px; border-radius: 10px; }
+.sun-count { color: #ffe082; }
+.tb-btn {
+  margin-left: auto; padding: 5px 14px; font-size: 15px; cursor: pointer;
+  background: #ffca28; border: 2px solid #e65100; border-radius: 10px; color: #4e2600; font-weight: bold;
+}
+.tb-btn + .tb-btn { margin-left: 0; }
+
+.main-area { display: flex; gap: 10px; align-items: stretch; }
+
+/* 战场 */
+.field-wrap { position: relative; }
+.field { position: relative; background: #7bb661; overflow: hidden; border: 3px solid #4e2c12; border-radius: 8px;
+  background-image: url('../images/background1.jpg'); background-size: 100% 100%; }
+
+.grid-cell {
+  position: absolute; width: 88px; height: 100px;
+  border: 1px dotted rgba(255,255,255,.25); cursor: pointer;
+}
+.grid-cell:hover { background: rgba(255,255,255,.12); }
+
+.plant, .zombie { position: absolute; pointer-events: none; z-index: 5; }
+.plant { width: 72px; height: 76px; }
+.plant img { height: 76px; width: auto; display: block; }
+.plant.big { width: 96px; height: 84px; margin-left: -12px; }
+.plant.big img { height: 84px; }
+.plant.boomimg img { width: 170px; height: auto; margin-left: -50px; margin-top: -20px; }
+.zombie { width: 100px; height: 87px; z-index: 6; }
+.zombie .zimg { width: 100%; height: 100%; }
+.zombie .zhat { position: absolute; left: 33px; top: -10px; width: 40px; }
+.plant.pop { animation: pop .4s; }
+@keyframes pop { 0% { transform: scale(.3); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+.hpbar { position: absolute; left: 8px; bottom: -3px; height: 4px; border-radius: 2px; width: 84%; transition: width .2s; }
+
+.pea { position: absolute; width: 24px; height: 15px; z-index: 4; }
+.pea img { width: 100%; height: 100%; }
+.pea.frozen { filter: hue-rotate(150deg) drop-shadow(0 0 4px #4fc3f7); }
+
+.sun-drop { position: absolute; width: 44px; height: 44px; cursor: pointer; z-index: 8; }
+.sun-drop img { width: 100%; height: 100%; filter: drop-shadow(0 0 6px gold); }
+.sun-drop.fly { transition: all .4s ease-in; opacity: 0; transform: translate(-300px, -300px) scale(.3); }
+
+.mower { position: absolute; width: 48px; height: 39px; z-index: 5; }
+
+.boom { position: absolute; width: 140px; height: 140px; border-radius: 50%;
+  background: radial-gradient(circle, #ffeb3b 10%, #ff7043 50%, transparent 70%);
+  animation: boomA .6s; z-index: 9; }
+@keyframes boomA { 0% { transform: scale(.2); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+
+/* 卡片栏 */
+.cardbar { display: flex; gap: 8px; margin-top: 8px; justify-content: center; }
+.plant-card {
+  position: relative; width: 72px; height: 86px; background: #a0522d;
+  border: 2px solid #5d2906; border-radius: 10%; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.plant-card .cardimg { width: 58px; height: 36px; object-fit: contain; }
+.plant-card .cost { color: #ffe082; font-size: 12px; font-weight: bold; }
+.plant-card .pname { color: #fff; font-size: 11px; }
+.plant-card.active { border: 3px solid #ffea00; box-shadow: 0 0 10px #ffe082; }
+.plant-card.cooldown { filter: grayscale(1); opacity: .55; cursor: not-allowed; }
+
+/* 弹题模态框 */
+.qmodal {
+  position: absolute; inset: 0; z-index: 50;
+  background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center;
+}
+.qbox {
+  width: 520px; max-width: 92%;
+  background: linear-gradient(180deg, #fffde7, #ffe0b2);
+  border: 4px solid #e65100; border-radius: 18px; padding: 26px 30px; text-align: center;
+  animation: qin .25s;
+}
+@keyframes qin { from { transform: scale(.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.q-purpose { color: #e65100; font-weight: bold; font-size: 15px; margin-bottom: 8px; }
+.q-text { font-size: 26px; font-weight: bold; color: #333; margin-bottom: 10px; }
+.q-tip { font-size: 15px; color: #1565c0; background: #e3f2fd; border-radius: 8px; padding: 6px 10px; margin: 8px 0; }
+.q-opts { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 12px; }
+.q-opt {
+  min-width: 150px; padding: 12px 22px; font-size: 22px; font-weight: bold;
+  background: #fff; border: 3px solid #8d6e63; border-radius: 12px; cursor: pointer; color: #333;
+}
+.q-opt:hover { background: #fff3e0; }
+.q-opt.right { background: #a5d6a7; border-color: #2e7d32; }
+.q-opt.wrong { background: #ef9a9a; border-color: #c62828; }
+.q-input {
+  padding: 10px 14px; font-size: 22px; width: 240px;
+  border: 3px solid #8d6e63; border-radius: 12px; text-align: center;
+}
+.q-btn {
+  padding: 10px 22px; font-size: 20px; font-weight: bold; cursor: pointer;
+  background: #66bb6a; color: #fff; border: 3px solid #1b5e20; border-radius: 12px;
+}
+.q-btn.sm { font-size: 15px; padding: 6px 12px; }
+.q-feedback { width: 100%; font-size: 18px; margin-top: 10px; }
+.fb-ok { color: #2e7d32; font-weight: bold; }
+.fb-no { color: #c62828; font-weight: bold; }
+
+/* 提示横幅 */
+.banner {
+  position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.75); color: #ffe082; font-size: 20px; font-weight: bold;
+  padding: 10px 26px; border-radius: 12px; z-index: 60; white-space: nowrap;
+}
+
+/* 暂停遮罩 */
+.pause-overlay {
+  position: absolute; inset: 0; z-index: 70;
+  background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.pause-box {
+  background: linear-gradient(180deg, #fffde7, #ffe0b2);
+  border: 4px solid #e65100; border-radius: 18px; padding: 36px 60px;
+  text-align: center; color: #4e2600;
+  animation: qin .25s;
+}
+
+/* 屏幕小键盘（数学题触屏输入） */
+.keypad {
+  width: 100%; display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; margin-top: 10px;
+}
+.keypad .key {
+  padding: 10px 0; font-size: 20px; font-weight: bold;
+  background: #fff; border: 2px solid #8d6e63; border-radius: 10px; cursor: pointer; color: #333;
+}
+.keypad .key:active { background: #ffe0b2; }
+
+/* ---------- 对战面板 ---------- */
+.battle-panel {
+  width: 205px; background: rgba(255,251,235,.92); border: 3px solid #8B4513;
+  border-radius: 12px; padding: 10px; font-size: 14px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.battle-panel.p1 { border-color: #2e7d32; }
+.battle-panel.p2 { border-color: #c62828; }
+.bp-title { font-weight: bold; font-size: 16px; text-align: center; color: #4e342e; }
+.bp-score, .bp-streak { background: rgba(0,0,0,.06); border-radius: 8px; padding: 4px 8px; color: #555; }
+.bp-q { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.bp-qtext { font-size: 15px; font-weight: bold; color: #333; min-height: 42px; }
+.bp-qopts { display: flex; flex-direction: column; gap: 6px; }
+.q-opt.sm { min-width: 0; font-size: 15px; padding: 8px 10px; }
+.bp-input { padding: 7px; font-size: 15px; border: 2px solid #8d6e63; border-radius: 8px; width: 100%; }
+.bp-buff { color: #e65100; font-weight: bold; font-size: 13px; min-height: 18px; text-align: center; }
+
+/* 帮助 */
+.help-body { font-size: 15px; color: #444; line-height: 1.8; }
+.help-body h3 { color: #2e7d32; margin: 14px 0 6px; }
+.help-body ul { padding-left: 22px; }
