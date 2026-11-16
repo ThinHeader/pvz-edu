@@ -2,6 +2,8 @@
 
 > 一款面向小学课堂的教育改编游戏：在经典《植物大战僵尸》玩法中融入**拼音、英语、数学**练习——答题才能种植物、答题才能召唤僵尸，让孩子在玩游戏的过程中不知不觉完成知识点练习。
 
+🎮 **在线试玩**：[https://thinheader.github.io/pvz-edu/](https://thinheader.github.io/pvz-edu/)
+
 ![游戏截图](docs/screenshot.png)
 
 ## ✨ 特性
