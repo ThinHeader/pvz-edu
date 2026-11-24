@@ -93,7 +93,7 @@ pvz-edu/
 
 ## ⚠️ 版权说明
 
-- **代码**：MIT 许可证，可自由使用、修改、二次开发
+- **代码**：CC BY-NC-SA 4.0 许可证，可署名分享与非商业修改，**禁止商业使用**（详见 [LICENSE](LICENSE)）
 - **美术素材**：`images/` 下的植物/僵尸/卡片等原版风格素材来自开源学习项目（参考 [yangyunhe369/h5-game-plantsVSzombies](https://github.com/yangyunhe369/h5-game-plantsVSzombies)），**仅限课堂教学等非商业教育用途，请勿用于商业发行**。Plants vs. Zombies 是 EA/PopCap 的商标，本项目与官方无关
 - 路障/铁桶头饰（`hat_cone.svg`、`hat_bucket.svg`）为本项目原创绘制
 
